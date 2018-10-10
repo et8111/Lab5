@@ -13,7 +13,7 @@ namespace Lab5
             return (num == 1) ? 1 : num * FACS(num - 1);
         }
 
-        public static long MAX(long num, int next) //9223372036854775807
+        public static long MAX(long num, int next) //9223372036854775807 is numeric limit for long, after logic fails
         {
             num *= (next + 1);
             return (num > 0)? MAX(num, next+1): next;
@@ -22,7 +22,7 @@ namespace Lab5
         static void Main(string[] args)
         {
             bool s = true;
-            //long temp = 0;
+            long temp = 1;
             while (s)
             {
                 Console.Write("ENTER SOMETHING (1-20): ");
@@ -33,10 +33,10 @@ namespace Lab5
                 Console.Write("AGAIN (y/n)?: ");
                 s = (Console.ReadLine() == "y") ? true : false;
             }
-            //Console.Write("RUN MAX  (y/n)???:");
-            //if (Console.ReadLine() == "y")
-            //    temp = MAX(1,1);
-            //Console.WriteLine("MAX FACTORIAL OF " + temp + " IS " + FACS(temp));
+            Console.Write("RUN MAX  (y/n)???:");
+            if (Console.ReadLine() == "y")
+                temp = MAX(1, 1);
+            Console.WriteLine("MAX FACTORIAL OF " + temp + " IS " + FACS(temp));
         }
     }
 }
